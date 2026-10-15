@@ -9,7 +9,7 @@
   },
   "include": [
     "src/**/*.ts"
-  ],
+, "src/app/services/staff.service"  ],
   "exclude": [
     "src/**/*.spec.ts"
   ]

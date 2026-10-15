@@ -1,8 +1,12 @@
 <a class="card" [routerLink]="['/students', student().id]" 
 [attr.aria-label]="'Read the story of ' + student().name"> 
-<img class="card__photo" [src]="photoSrc()" 
-[alt]="'Portrait of ' + student().name" loading="lazy" 
+
+<img class="card__photo" 
+[src]="photoSrc()" 
+[alt]="'Portrait of ' + student().name" 
+loading="lazy" 
 (error)="onImageError()"> 
+
 <div class="card__body"> 
 <div class="card__heading"> 
 <h3 class="card__name">{{ student().name }}</h3> 
