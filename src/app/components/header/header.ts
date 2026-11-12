@@ -7,6 +7,7 @@
 import { Component, signal,inject } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { SavedService } from '../../services/saved.service'; 
+import { AuthService } from '../../services/auth.service';
 @Component({
   selector: 'app-header',
   // STEP 1: RouterLink makes links navigate WITHOUT reloading the page.
@@ -30,4 +31,5 @@ export class Header {
   // screen automatically. Here: did the logo image fail to load?
   protected readonly logoFailed = signal(false);
   protected readonly saved = inject(SavedService);
+  protected readonly auth = inject(AuthService); 
 }

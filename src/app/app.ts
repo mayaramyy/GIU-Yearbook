@@ -3,8 +3,9 @@
    WHAT: The outer "shell" every page lives inside: header on top,
          page content in the middle.
    ===================================================================== */
-import { Component } from '@angular/core';
+import { Component , afterNextRender, inject} from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { AuthService } from './services/auth.service';
 
 import { Header } from './components/header/header';
 import { TopStrip } from './components/top-strip/top-strip';
@@ -18,4 +19,14 @@ import { TopStrip } from './components/top-strip/top-strip';
   templateUrl: './app.html',
   styleUrl: './app.css',
 })
-export class App {}
+export class App {
+  private readonly auth = inject(AuthService); 
+
+constructor() { 
+// After a reload the signal is empty, but the cookie may still be valid. 
+// Ask the server "who am I?" once, as soon as the page is on screen 
+// (afterNextRender runs only in the browser). 
+// A 401 just means "not signed in", so we ignore that error. 
+afterNextRender(() => this.auth.checkSession().subscribe({ error: () => {} })); 
+}
+}
