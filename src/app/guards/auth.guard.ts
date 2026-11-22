@@ -16,3 +16,7 @@ export const authGuard: CanActivateFn = () => {
     catchError(() => of(router.createUrlTree(['/login'])))
   );
 };
+export interface User {
+  studentId: number;
+  name: string;
+}

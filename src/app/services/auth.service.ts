@@ -3,7 +3,7 @@ import { Injectable, computed, inject, signal } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, tap } from 'rxjs';
 
-type User = Record<string, unknown>;
+export type User = Record<string, unknown>;
 
 interface LoginCredentials {
   email: string;

@@ -80,10 +80,10 @@ export class ProfilePage implements OnInit {
         this.form.patchValue(draft.values);
         this.savedAt.set(draft.savedAt);
       } else {
-        this.form.patchValue({
-          quote: student.quote
-        });
-      }
+  this.form.patchValue({
+    quote: student.quote
+  });
+}
 
       this.changed.set(false);
     });
